@@ -20,7 +20,7 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-      
+
 
         <input type="hidden" name="user_id"  value="<%= current_user.id%>">
       </div>
@@ -30,9 +30,11 @@
         <label for="movie_id" class="control-label">
           Movie
         </label>
-
+<!--
         <input type="text" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= @bookmark.movie_id %>">
-      </div>
+      </div> -->
+
+      <%= select_tag(:movie_id, options_from_collection_for_select(Movie.order("title ASC"), :id, :title, @bookmark.movie_id), :class => "form-control") %>
 
       <button class="btn btn-success">
         Create Bookmark
